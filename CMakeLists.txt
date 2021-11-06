@@ -65,7 +65,7 @@ endif()
 
 if (SUPPORT_MID_TIMIDITY)
     add_definitions(-DMUSIC_MID_TIMIDITY)
-    add_subdirectory(timidity)
+    add_subdirectory(src/codecs/timidity)
     target_link_libraries(SDL2_mixer PRIVATE timidity)
 endif()
 
