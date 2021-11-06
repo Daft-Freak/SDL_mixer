@@ -9,6 +9,7 @@ endif()
 # FIXME: missing CMakeLists.txt for MPG123
 set(SUPPORT_MP3_MPG123 OFF CACHE BOOL "" FORCE)
 
+option(SUPPORT_WAV "Support loading WAV music" ON)
 option(SUPPORT_FLAC "Support loading FLAC music with libFLAC" OFF)
 option(SUPPORT_OGG "Support loading OGG Vorbis music via Tremor" OFF)
 option(SUPPORT_MP3_MPG123 "Support loading MP3 music via MPG123" OFF)
@@ -34,6 +35,10 @@ target_sources(SDL2_mixer PRIVATE
         src/codecs/music_mpg123.c src/codecs/music_nativemidi.c
         src/codecs/music_ogg.c src/codecs/music_opus.c
         src/codecs/music_timidity.c src/codecs/music_wav.c)
+
+if (SUPPORT_WAV)
+    add_definitions(-DMUSIC_WAV)
+endif()
 
 if (SUPPORT_FLAC)
     add_definitions(-DMUSIC_FLAC)
