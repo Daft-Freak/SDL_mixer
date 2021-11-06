@@ -16,6 +16,8 @@ option(SUPPORT_MP3_MPG123 "Support loading MP3 music via MPG123" OFF)
 option(SUPPORT_MOD_MODPLUG "Support loading MOD music via modplug" OFF)
 option(SUPPORT_MID_TIMIDITY "Support TiMidity" OFF)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 include_directories(include src src/codecs)
 
 add_library(SDL2_mixer SHARED)
